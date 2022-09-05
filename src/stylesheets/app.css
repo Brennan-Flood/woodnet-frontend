@@ -1,0 +1,12 @@
+.app {
+    width: 100vw;
+    height: 100vh;
+    background-color: #16213E;
+}
+
+.app::before {
+    content: "";
+    position: absolute;
+    background-image: url(./gigachad.png) 0 0 repeat;
+}
+/* 16213E 0F3460 533483 E94560 */

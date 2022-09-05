@@ -1,0 +1,27 @@
+.signin {
+    margin-top: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.signin-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #0F3460;
+    padding: 50px;
+    border-radius: 10px;
+}
+/* 16213E 0F3460 533483 E94560 */
+
+.signin-form > * {
+    margin: 5px;
+}
+
+.signin-title {
+    font-family: comfortaa;
+    font-weight: 200;
+    font-size: 30px;
+    color: #E94560;
+}

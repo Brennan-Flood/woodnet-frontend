@@ -1,0 +1,52 @@
+.control-panel-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: auto;
+    max-width: 80%;
+    margin: 5px;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.control-panel-image {
+    width: 50px;
+    height: 50px;
+}
+
+.control-panel-title {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    height: 50px;
+}
+
+.control-panel-symbol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-panel-title-image {
+    display: flex;
+    flex-direction: row;
+}
+
+.control-panel {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.control-panel > * {
+    margin: 10px;
+    padding: 4px;
+}
+
+.vanilla-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

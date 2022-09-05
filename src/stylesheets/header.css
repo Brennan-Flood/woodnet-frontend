@@ -1,0 +1,17 @@
+.app-header {
+    width: 100%;
+    display: flex;
+    position: fixed;
+    top: 0px;
+    justify-content: center;
+    background-color: #0F3460;
+    height: 70px;
+}
+
+.app-title {
+    padding: 20px;
+    font-size: 40px;
+    color: white;
+    font-family: Comfortaa;
+    font-weight: 300;
+}
