@@ -4,14 +4,16 @@
     position: fixed;
     top: 0px;
     justify-content: center;
+    align-items: center;
+    vertical-align: middle;
     background-color: #0F3460;
-    height: 70px;
+    height: 90px;
 }
 
 .app-title {
-    padding: 20px;
-    font-size: 40px;
+    padding: 5px;
+    font-size: 44px;
     color: white;
     font-family: Comfortaa;
-    font-weight: 300;
+    font-weight: 400;
 }

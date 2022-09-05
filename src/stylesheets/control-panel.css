@@ -20,12 +20,18 @@
     align-items: center;
     vertical-align: middle;
     height: 50px;
+    color: white;
+    font-family: comfortaa;
+    font-weight: 100;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .control-panel-symbol {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 .control-panel-title-image {
