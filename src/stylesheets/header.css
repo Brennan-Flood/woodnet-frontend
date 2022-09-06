@@ -7,7 +7,7 @@
     align-items: center;
     vertical-align: middle;
     background-color: #0F3460;
-    height: 90px;
+    z-index: 2;
 }
 
 .app-title {
@@ -16,4 +16,17 @@
     color: white;
     font-family: Comfortaa;
     font-weight: 400;
+    text-align: center;
+}
+
+@media only screen and ( max-width: 697px) {
+    .app-header {
+        height: 140px;
+    }
+}
+
+@media only screen and ( min-width: 698px) {
+    .app-header {
+        height: 90px;
+    }
 }

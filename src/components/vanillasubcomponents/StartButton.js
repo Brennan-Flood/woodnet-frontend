@@ -9,7 +9,7 @@ const StartButton = (props) => {
 
     return (
         <div className="server-button-container">
-            <button onClick={handleClick} className="btn btn-success">Start Server</button>
+            <button id="control-button" onClick={handleClick} className="btn btn-success">Start</button>
         </div>
     )
 };

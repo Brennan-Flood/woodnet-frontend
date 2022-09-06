@@ -1,13 +1,35 @@
+@keyframes MOVE-BG {
+    from {
+      transform: translate(0vw, 0vh);
+    }
+    to {
+      transform: translate(-100vw, -100vh);
+    }
+ }
+
 .app {
     width: 100vw;
     height: 100vh;
     background-color: #16213E;
     overflow: hidden;
+    z-index: -1;
+    position: absolute;
 }
 
 .app::before {
     content: "";
+    z-index: -0;
+    height: 200%;
+    width: 200%;
     position: absolute;
-    background-image: url(./gigachad.png) 0 0 repeat;
+    background-image: url("./gigachad.png");
+    background-size: 200px 200px;
+    animation-name: MOVE-BG;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    overflow: hidden;
 }
+
+
 /* 16213E 0F3460 533483 E94560 */

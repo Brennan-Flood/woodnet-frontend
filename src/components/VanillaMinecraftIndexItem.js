@@ -1,7 +1,7 @@
 import React from "react";
 import StartButton from "./vanillasubcomponents/StartButton";
 import StopButton from "./vanillasubcomponents/StopButton";
-import VanillaHeader from "./vanillasubcomponents/VanillaHeader";
+import VanillaHeader from "./vanillasubcomponents/VanillaIndexHeader";
 import { handleCollapse } from "../functions/handleCollapse";
 
 
@@ -13,12 +13,8 @@ const VanillaMinecraftContainer = (props) => {
     };
 
     return (
-        <div className="vanilla-container">
-            <VanillaHeader toggleCollapse={toggleCollapse} />
-            <div id="vanilla-control-panel" className="control-panel collapsed">
-                <StartButton />
-                <StopButton />
-            </div>
+        <div className="index-button vanilla-container">
+            <VanillaHeader />
         </div>
     )
 };

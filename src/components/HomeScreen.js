@@ -1,5 +1,5 @@
 import React from "react";
-import VanillaMinecraftContainer from "./VanillaMinecraftContainer";
+import VanillaMinecraftContainer from "./VanillaMinecraftIndexItem";
 
 const HomeScreen = (props) => {
 

@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import SignIn from "./components/auth/SignIn";
 import HomeScreen from "./components/HomeScreen";
 import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 function App() {
   const [signedIn, setSignedIn] = useState(false);
@@ -17,10 +18,10 @@ function App() {
 
   return (
     <div className="app">
-
+      <div className="background-image"></div>
       <Header />
-      <Routes>
-        <Route  element={<SignIn handleSignIn={handleSignIn} navigate={navigate} />} path="/"></Route>
+      <Routes style={{zIndex: "1"}}>
+        <Route style={{zIndex: "1"}} element={<SignIn handleSignIn={handleSignIn} navigate={navigate} />} path="/"></Route>
         <Route element={
           <AuthRoute navigate={navigate} signedIn={signedIn}
             element={
@@ -28,6 +29,7 @@ function App() {
             }
           />
         } path="/Home"/>
+        <Route />
       </Routes>
     </div>
     )

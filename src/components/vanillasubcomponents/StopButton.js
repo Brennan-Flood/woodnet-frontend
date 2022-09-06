@@ -8,7 +8,7 @@ const StopButton = (props) => {
 
     return (
         <div className="server-button-container">
-            <button onClick={handleClick} className="btn btn-danger">Stop Server</button>
+            <button id="control-button" onClick={handleClick} className="btn btn-danger">Stop</button>
         </div>
     )
 };

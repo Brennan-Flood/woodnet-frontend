@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate, Route } from "react-router";
+import SignIn from "./SignIn";
 
 const AuthRoute = (props) => {
     useEffect( function() {
@@ -9,9 +10,7 @@ const AuthRoute = (props) => {
     })
 
     if (props.signedIn === false) {
-        return (<div>
-            Oops, something went wrong!
-        </div>)
+        return (<SignIn />)
     } else {
         return props.element
     }

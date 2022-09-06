@@ -1,27 +1,45 @@
 .signin {
-    margin-top: 90px;
+    z-index: 2;
+    position: absolute;
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 20px;
 }
 
+@media only screen and ( max-width: 697px) {
+    .signin {
+        margin-top: 140px;
+    }
+}
+
+@media only screen and ( min-width: 698px) {
+    .signin {
+        margin-top: 90px;
+    }
+}
+
 .signin-form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: #0F3460;
     padding: 50px;
     border-radius: 10px;
+    max-width: 600px;
 }
 /* 16213E 0F3460 533483 E94560 */
-
 .signin-form > * {
     margin: 5px;
+}
+
+.password-error {
+    color: red;
 }
 
 .signin-title {
     font-family: comfortaa;
     font-weight: 200;
     font-size: 30px;
-    color: #E94560;
+    color: white;
 }

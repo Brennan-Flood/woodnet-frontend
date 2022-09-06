@@ -1,17 +1,75 @@
+@media only screen and ( max-width: 697px) {
+    .control-panel-main, .server-info {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .status {
+        font-size: 14px;
+    }
+
+    .control-panel-title {
+        font-size: 20px;
+    }
+
+    .server-info {
+        justify-content: flex-start;
+    }
+
+    .ip {
+        font-size: 14px;
+    }
+
+    .control-panel-header {
+        height: 200px;
+    }
+}
+
+/* @media only screen and ( max-width: 697px) {
+    .server-info {
+        flex-direction: row;
+    }
+
+    .control-panel-title {
+        font-size: 25px;
+    }
+} */
+
+@media only screen and ( min-width: 698px) {
+    .control-panel-main {
+        flex-direction: column;
+    }
+
+    .server-info {
+        flex-direction: row;
+    }
+
+    .control-panel-title {
+        font-size: 30px;
+    }
+}
+
 .control-panel-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: auto;
-    max-width: 80%;
+    align-items: center;
+    width: 98%;
     margin: 5px;
     padding: 10px;
     font-size: 25px;
+    background-color: #0F3460;
+    border-radius: 8px;
+}
+
+.control-panel-main {
+    display: flex;
 }
 
 .control-panel-image {
-    width: 50px;
-    height: 50px;
+    width: 90px;
+    height: 100px;
+    margin: 5px;
 }
 
 .control-panel-title {
@@ -37,6 +95,8 @@
 .control-panel-title-image {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .control-panel {
@@ -55,4 +115,34 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.server-info {
+    display: flex;
+}
+
+.ip-container, .status-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 10px;
+    font-family: comfortaa;
+    font-weight: 100;
+}
+
+.ip-container > *, .status-container > * {
+    color: white;
+    margin-left: 10px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+#control-button {
+    width: 80px;
+    margin: 5px;
+    padding: 4px;
 }
