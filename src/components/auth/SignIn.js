@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-
+import { ToastContainer, toast } from "react-toastify";
 
 const SignIn = (props) => {
     const [password, setPassword] = useState(null);
@@ -18,6 +18,7 @@ const SignIn = (props) => {
         document.getElementById("password-input").classList.toggle("has-danger")
         console.log("test")
         setPasswordError(true);
+        props.badLogin();
     };
 
     const handleSubmit = (e) => {
@@ -34,11 +35,12 @@ const SignIn = (props) => {
     return (
         <div className="signin">
             <form style={{backgroundColor: "#0F3460"}} className="form-control signin-form" onSubmit={handleSubmit}>
-                <h1 className="signin-title">Sign In, Gamer</h1>
+                <h1 className="signin-title">Welcome, Gamer</h1>
                 { passwordError && <p className="password-error">Nice try, bozo</p>}
                 <input required id="password-input" className="form-control has-feedback" onChange={handlePassword} type="password" placeholder="Password"></input>
                 <button style={{padding: "10px", margin: "10px"}} className="btn btn-primary" type="submit">Sign In</button>
             </form>
+            
         </div>
     )
 };

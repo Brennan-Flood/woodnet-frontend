@@ -14,7 +14,7 @@ const VanillaMinecraftContainer = (props) => {
 
     return (
         <div className="index-button vanilla-container">
-            <VanillaHeader />
+            <VanillaHeader  copiedNotify={props.copiedNotify}/>
         </div>
     )
 };

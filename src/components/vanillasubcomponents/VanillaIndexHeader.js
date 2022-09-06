@@ -6,11 +6,13 @@ const VanillaHeader = (props) => {
     const [statusText, setStatusText] = useState("Offline")
     const handleCopyIp = (ip) => {
         navigator.clipboard.writeText(ip)
+        console.log(props.copiedNotify)
+        props.copiedNotify()
     }
 
     const getStatusIcon = () => {
         if (statusText === "Offline") {
-            return "fa fa-x"
+            return "fa-solid fa-x"
         }
     }
 
