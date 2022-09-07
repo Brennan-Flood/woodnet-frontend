@@ -1,5 +1,5 @@
 import React from "react";
-import VanillaMinecraftContainer from "./VanillaMinecraftIndexItem";
+import VanillaMinecraftContainer from "./VanillaMinecraftIndexItem.js";
 
 const HomeScreen = (props) => {
     console.log(props.copiedNotify)

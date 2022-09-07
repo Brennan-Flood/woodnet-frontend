@@ -1,5 +1,5 @@
 import React from "react"
-import { startServer } from "../../functions/startserver";
+import { startServer } from "../../../functions/startserver";
 
 const StartButton = (props) => {
 

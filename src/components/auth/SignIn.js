@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = (props) => {
     const [password, setPassword] = useState(null);
     const [passwordError, setPasswordError] = useState(false);
-
+    const navigate = useNavigate(null)
     const signIn = () => {
 
     };
@@ -29,11 +30,12 @@ const SignIn = (props) => {
             return;
         }
         props.handleSignIn();
-        props.navigate("/home")
+        navigate("/home")
     };
 
     return (
         <div className="signin">
+            <ToastContainer />
             <form style={{backgroundColor: "#0F3460"}} className="form-control signin-form" onSubmit={handleSubmit}>
                 <h1 className="signin-title">Welcome, Gamer</h1>
                 { passwordError && <p className="password-error">Nice try, bozo</p>}

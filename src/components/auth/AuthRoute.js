@@ -1,19 +1,9 @@
 import React, { useEffect } from "react";
-import { useNavigate, Route } from "react-router";
+import { Route, Navigate } from "react-router-dom";
 import SignIn from "./SignIn";
 
-const AuthRoute = (props) => {
-    useEffect( function() {
-        if (props.signedIn === false) {
-            props.navigate("/");
-        }
-    })
-
-    if (props.signedIn === false) {
-        return (<SignIn />)
-    } else {
-        return props.element
-    }
+const AuthRoute = ({signedIn, ...props}) => {
+    return (signedIn) ? props.element : <Navigate to="/"/>
 };
 
 export default AuthRoute;

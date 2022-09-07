@@ -1,5 +1,5 @@
 import React from "react";
-import { stopServer } from "../../functions/stopserver";
+import { stopServer } from "../../../functions/stopserver";
 
 const StopButton = (props) => {
     const handleClick = () => {

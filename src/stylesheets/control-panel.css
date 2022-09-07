@@ -2,6 +2,7 @@
     .control-panel-main, .server-info {
         flex-direction: column;
         flex-wrap: wrap;
+        align-items: flex-start;
     }
 
     .status {
@@ -23,17 +24,11 @@
     .control-panel-header {
         height: 200px;
     }
+
+    #control-button {
+        width: 80px;
+    }
 }
-
-/* @media only screen and ( max-width: 697px) {
-    .server-info {
-        flex-direction: row;
-    }
-
-    .control-panel-title {
-        font-size: 25px;
-    }
-} */
 
 @media only screen and ( min-width: 698px) {
     .control-panel-main {
@@ -47,6 +42,10 @@
     .control-panel-title {
         font-size: 30px;
     }
+
+    #control-button {
+        width: 120px;
+    }
 }
 
 .control-panel-header {
@@ -59,7 +58,12 @@
     padding: 10px;
     font-size: 25px;
     background-color: #0F3460;
+    transition: 0.2s;
     border-radius: 8px;
+}
+
+.control-panel-header:hover {
+    background-color: #174175;
 }
 
 .control-panel-main {
@@ -106,7 +110,6 @@
 }
 
 .control-panel > * {
-    margin: 10px;
     padding: 4px;
 }
 
@@ -124,14 +127,21 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-left: 10px;
     font-family: comfortaa;
     font-weight: 100;
+    position: relative;
+}
+
+.ip-container {
+    margin-left: 10px;
 }
 
 .ip-container > *, .status-container > * {
     color: white;
-    margin-left: 10px;
+}
+
+.ip-container:hover {
+    cursor: pointer;
 }
 
 .buttons-container {
@@ -146,3 +156,8 @@
     margin: 5px;
     padding: 4px;
 }
+
+
+.ip-item {
+    height: 100%;
+}   
