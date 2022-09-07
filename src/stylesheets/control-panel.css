@@ -60,6 +60,7 @@
     background-color: #0F3460;
     transition: 0.2s;
     border-radius: 8px;
+    box-shadow: 2px 4px 10px black;
 }
 
 .control-panel-header:hover {
