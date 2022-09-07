@@ -7,7 +7,7 @@ import SignIn from "./components/auth/SignIn";
 import ServerIndex from "./components/serverindex/ServerIndex";
 import Dropdown from "./components/Dropdown"
 import { ToastContainer, toast } from "react-toastify";
-import Home from "./components/Home";
+import Home from "./components/home/Home";
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.min.css';
