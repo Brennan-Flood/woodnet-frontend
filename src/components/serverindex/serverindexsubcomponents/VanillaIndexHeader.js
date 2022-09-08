@@ -3,7 +3,6 @@ import StartButton from "./StartButton";
 import StopButton from "./StopButton";
 import { toast } from "react-toastify";
 
-
 const VanillaHeader = (props) => {
     const [statusText, setStatusText] = useState("Offline")
     const handleCopyIp = (ip) => {
@@ -29,7 +28,7 @@ const VanillaHeader = (props) => {
         if (statusText === "Offline") {
             return {color: "red"}
         } else {
-            return
+            return {color: "green"}
         }
     
     };
@@ -42,12 +41,11 @@ const VanillaHeader = (props) => {
                     <h1 className="control-panel-title">Vanilla Minecraft</h1>
                     <div className="server-info">
                         <div className="status-container">
-                            <i className={getStatusIcon()}></i>
                             <p style={getStatusStyle()} className="status">{statusText}</p>
                         </div>
                         <div onClick={() => handleCopyIp("0.0.0.0")} className="ip-container">
                             <p className="ip ip-item">0.0.0.0</p>
-                            <i className="fa fa-clipboard ip-item"></i>
+                            <i id="ip-icon" className="fa fa-clipboard ip-item"></i>
                         </div>
                     </div>
                 </div>

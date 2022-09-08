@@ -107,7 +107,6 @@
 .control-panel {
     display: flex;
     flex-direction: row;
-
 }
 
 .control-panel > * {
@@ -128,6 +127,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     font-family: comfortaa;
     font-weight: 100;
     position: relative;
@@ -135,6 +135,7 @@
 
 .ip-container {
     margin-left: 10px;
+    align-items: center;
 }
 
 .ip-container > *, .status-container > * {
@@ -160,5 +161,20 @@
 
 
 .ip-item {
-    height: 100%;
-}   
+    height: 30px;
+    margin: 4px;
+}  
+
+.status {
+    height: 30px;
+    margin: 4px;
+    margin-left: 8px;
+    text-align: center;
+}
+
+#ip-icon {
+    font-size: 16px;
+    height: 10px;
+    margin: 4px;
+    align-self: center;
+}

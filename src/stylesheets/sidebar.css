@@ -5,10 +5,19 @@
     position: absolute;
     z-index: 2;
     transition: 0.3s ease-out;
-    margin-right: 50px;
 }
 
 .sidebar.collapsed {
     width: 0px;
     overflow: hidden;
+}
+
+#dropdown-container {
+    -webkit-user-select: none; /* Chrome/Safari */ 
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    /* The rule below is not implemented in browsers yet */
+    -o-user-select: none;
+    /* The rule below is implemented in most browsers by now */
+    user-select: none;
 }
