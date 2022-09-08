@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 import AuthRoute from "./components/auth/AuthRoute";
@@ -16,25 +16,24 @@ function App() {
   // const navigate = useNavigate(null);
   const [collapsed, setCollapsed] = useState(false);
 
-  const handleCollapseDeClickerAdd = () => {
-    document.addEventListener("click", (e) => {
-      console.log(e.target)
-    });
-  };
-
-  const handleCollapseDeClickerRemove = () => {
-    document.removeEventListener("click", (e) => {
-      console.log(e.target)})
-
-  };
+  const eventListenerCallback = useCallback( (e) => {
+    let id = e.target.id
+    let app = document.getElementById("app")
+    let idArray = ["dropdownMenuLink", "dropdown-menu", "dropdown-divider", "dropdown-container", "dropdown-button"]
+    if (!idArray.includes(id) || e.target.id === "") {
+      setCollapsed(false)
+      app.removeEventListener("click", eventListenerCallback, true)
+    }
+  })
 
   useEffect(() => {
+    let app = document.getElementById("app")
     if (!collapsed === true) {
-      handleCollapseDeClickerRemove()
+      console.log("Should be removed")
+      app.removeEventListener("click", eventListenerCallback, true)
     } else {
-      handleCollapseDeClickerAdd()
+      app.addEventListener("click", eventListenerCallback ,true);
     }
-    
   }, [collapsed])
   
 
@@ -66,10 +65,10 @@ function App() {
 
 
   return (
-      <div className="app">
+      <div id="app" className="app">
         <div className="background-image"></div>
         <ToastContainer />
-        <Header setCollapsed={setCollapsed} collapsed={collapsed} signedIn={signedIn} />
+        <Header handleLogout={handleLogout} setCollapsed={setCollapsed} collapsed={collapsed} signedIn={signedIn} />
         <Routes style={{zIndex: "1"}}>
           <Route style={{zIndex: "1"}} element={<SignIn badLogin={badLogin} handleSignIn={handleSignIn} />} path="/"></Route>
           <Route exact path="/home" element={

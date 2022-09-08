@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Dropdown = (props) => {
 
@@ -13,14 +14,21 @@ const Dropdown = (props) => {
         props.setCollapsed(!props.collapsed)
     };
     
+    const handleLogout = () => {
+        props.handleLogout()
+        toast.success("Logout Successful", {
+            position:"bottom-center"
+        })
+    };
+
     return (
         <div id="dropdown-container" className="dropdown show">
         <i onClick={handleCollapse} className="fa fa-bars" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-        <div style={getStyle()} className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a onClick={() => navigate("/home")} className="dropdown-item" >Home</a>
-          <a onClick={() => navigate("/servers")} className="dropdown-item">Servers</a>
-          <div className="dropdown-divider"></div>
-          <a onClick={props.handleLogout} className="dropdown-item">Logout</a>
+        <div id="dropdown-menu" style={getStyle()} className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a id="dropdown-button" onClick={() => navigate("/home")} className="dropdown-item" >Home</a>
+          <a id="dropdown-button" onClick={() => navigate("/servers")} className="dropdown-item">Servers</a>
+          <div id="dropdown-divider" className="dropdown-divider"></div>
+          <a id="dropdown-button" onClick={handleLogout} className="dropdown-item">Logout</a>
         </div>
         </div>
     )
