@@ -96,3 +96,20 @@
     background-color: rgba(15, 51, 96, 0.329);
     cursor: pointer;
 }
+
+#dropdownMenuLink {
+
+    font-size: 30px;
+    color: white;
+}
+
+#dropdown-container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin: 25px;
+}
+
+.dropdown-menu {
+    display: block;
+}

@@ -11,7 +11,6 @@ const SignIn = (props) => {
     };
 
     const handlePassword = (e) => {
-        console.log(e.target.value);
         setPassword(e.target.value);
     };
 
