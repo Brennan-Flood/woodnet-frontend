@@ -1,5 +1,6 @@
-@media only screen and ( max-width: 697px) {
-    .control-panel-main, .server-info {
+@media only screen and (max-width: 697px) {
+    .control-panel-main,
+    .server-info {
         flex-direction: column;
         flex-wrap: wrap;
         align-items: flex-start;
@@ -30,7 +31,7 @@
     }
 }
 
-@media only screen and ( min-width: 698px) {
+@media only screen and (min-width: 698px) {
     .control-panel-main {
         flex-direction: column;
     }
@@ -57,7 +58,7 @@
     margin: 5px;
     padding: 10px;
     font-size: 25px;
-    background-color: #0F3460;
+    background-color: #0f3460;
     transition: 0.2s;
     border-radius: 8px;
     box-shadow: 2px 4px 10px black;
@@ -123,7 +124,8 @@
     display: flex;
 }
 
-.ip-container, .status-container {
+.ip-container,
+.status-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -138,7 +140,8 @@
     align-items: center;
 }
 
-.ip-container > *, .status-container > * {
+.ip-container > *,
+.status-container > * {
     color: white;
 }
 
@@ -154,16 +157,15 @@
 }
 
 #control-button {
-    width: 80px;
+    width: 100px;
     margin: 5px;
     padding: 4px;
 }
 
-
 .ip-item {
     height: 30px;
     margin: 4px;
-}  
+}
 
 .status {
     height: 30px;

@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     vertical-align: middle;
-    background-color: #0F3460;
+    background-color: #0f3460;
     z-index: 2;
 }
 
@@ -19,23 +19,7 @@
     text-align: center;
 }
 
-@media only screen and ( max-width: 697px) {
-    .app-header {
-        height: 90px;
-    }
-
-    .app-title {
-        font-size: 44px;
-    }
-
-    #header-bars {
-        margin: 20px;
-        font-size: 30px;
-
-    }
-}
-
-@media only screen and ( min-width: 698px) {
+@media only screen and (max-width: 697px) {
     .app-header {
         height: 90px;
     }
@@ -50,36 +34,50 @@
     }
 }
 
-@media only screen and ( max-width: 388px) {
-   #header-bars {
-    margin: 10px;
-    font-size: 25px;
-   }
-
-   .app-header {
-    height: 70px;
+@media only screen and (min-width: 698px) {
+    .app-header {
+        height: 90px;
     }
 
-   .app-title {
-    font-size: 38px;
+    .app-title {
+        font-size: 44px;
+    }
+
+    #header-bars {
+        margin: 20px;
+        font-size: 30px;
     }
 }
 
-@media only screen and ( max-width: 333px) {
+@media only screen and (max-width: 388px) {
     #header-bars {
-     margin: 10px;
-     font-size: 20px;
-
+        margin: 10px;
+        font-size: 25px;
     }
- 
+
     .app-header {
-     height: 60px;
-     }
- 
+        height: 70px;
+    }
+
     .app-title {
-     font-size: 20px;
-     }
- }
+        font-size: 38px;
+    }
+}
+
+@media only screen and (max-width: 333px) {
+    #header-bars {
+        margin: 10px;
+        font-size: 20px;
+    }
+
+    .app-header {
+        height: 60px;
+    }
+
+    .app-title {
+        font-size: 20px;
+    }
+}
 
 #header-bars {
     position: absolute;
@@ -98,7 +96,6 @@
 }
 
 #dropdownMenuLink {
-
     font-size: 30px;
     color: white;
 }

@@ -1,9 +1,9 @@
 @keyframes MOVE-BG {
     from {
-      transform: translate(0vw, 0vh);
+        transform: translate(0vw, 0vh);
     }
     to {
-      transform: translate(-100vw, -100vh);
+        transform: translate(-100vw, -100vh);
     }
 }
 
@@ -12,7 +12,7 @@
 .app {
     width: 100vw;
     height: 100vh;
-    background-color: #16213E;
+    background-color: #16213e;
     overflow: hidden;
     z-index: -1;
     position: absolute;
@@ -32,5 +32,3 @@
     animation-iteration-count: infinite;
     overflow: hidden;
 }
-
-

@@ -7,13 +7,13 @@
     padding: 20px;
 }
 
-@media only screen and ( max-width: 697px) {
+@media only screen and (max-width: 697px) {
     .signin {
         margin-top: 90px;
     }
 }
 
-@media only screen and ( min-width: 698px) {
+@media only screen and (min-width: 698px) {
     .signin {
         margin-top: 90px;
     }
@@ -23,7 +23,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #0F3460;
+    background-color: #0f3460;
     padding: 50px;
     border-radius: 10px;
     max-width: 600px;
@@ -42,4 +42,10 @@
     font-weight: 200;
     font-size: 30px;
     color: white;
+}
+
+.link-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

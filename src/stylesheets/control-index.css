@@ -5,7 +5,6 @@
     justify-content: center;
     z-index: 1;
     position: absolute;
-    
 }
 
 .index-button {
@@ -13,13 +12,13 @@
     padding: 4px;
 }
 
-@media only screen and ( max-width: 697px) {
+@media only screen and (max-width: 697px) {
     .control-index {
         margin-top: 90px;
     }
 }
 
-@media only screen and ( min-width: 698px) {
+@media only screen and (min-width: 698px) {
     .control-index {
         margin-top: 90px;
     }
