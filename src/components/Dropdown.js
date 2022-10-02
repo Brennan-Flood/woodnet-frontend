@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { logOut } from "../services/authservices";
 
 const Dropdown = (props) => {
     const navigate = useNavigate();
@@ -13,10 +14,13 @@ const Dropdown = (props) => {
         props.setCollapsed(!props.collapsed);
     };
 
-    const handleLogout = () => {
+    const handleLogout = async function () {
+        let data = { res: "logout successful" };
         props.handleLogout();
-        toast.success("Logout Successful", {
-            position: "bottom-center",
+        logOut(data).then((res) => {
+            toast.success("Logout Successful", {
+                position: "bottom-center",
+            });
         });
     };
 

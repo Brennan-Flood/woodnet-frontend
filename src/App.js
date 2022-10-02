@@ -13,11 +13,14 @@ import "font-awesome/css/font-awesome.min.css";
 import PreAuthRoute from "./components/auth/PreAuthRoute";
 import Splash from "./components/auth/Splash";
 import Register from "./components/auth/Register";
+import ForgotPassword from "./components/auth/ForgotPassword";
+import { callApi } from "./services/apitest";
 
 function App() {
     const [signedIn, setSignedIn] = useState(false);
     // const navigate = useNavigate(null);
     const [collapsed, setCollapsed] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const eventListenerCallback = useCallback((e) => {
         let id = e.target.id;
@@ -35,10 +38,12 @@ function App() {
         }
     });
 
+    // window.callApi = callApi;
+
     useEffect(() => {
         let app = document.getElementById("app");
         if (!collapsed === true) {
-            console.log("Should be removed");
+            // console.log("Should be removed");
             app.removeEventListener("click", eventListenerCallback, true);
         } else {
             app.addEventListener("click", eventListenerCallback, true);
@@ -104,6 +109,24 @@ function App() {
                                 <SignIn
                                     badLogin={badLogin}
                                     handleSignIn={handleSignIn}
+                                    loading={loading}
+                                    setLoading={setLoading}
+                                />
+                            }
+                        />
+                    }
+                ></Route>
+                <Route
+                    path="/forgotpass"
+                    element={
+                        <PreAuthRoute
+                            signedIn={signedIn}
+                            element={
+                                <ForgotPassword
+                                    badLogin={badLogin}
+                                    handleSignIn={handleSignIn}
+                                    loading={loading}
+                                    setLoading={setLoading}
                                 />
                             }
                         />
@@ -118,6 +141,8 @@ function App() {
                                 <Register
                                     badLogin={badLogin}
                                     handleSignIn={handleSignIn}
+                                    loading={loading}
+                                    setLoading={setLoading}
                                 />
                             }
                         />
