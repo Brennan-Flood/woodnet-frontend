@@ -15,13 +15,14 @@ import Splash from "./components/auth/Splash";
 import Register from "./components/auth/Register";
 import ForgotPassword from "./components/auth/ForgotPassword";
 import { callApi } from "./services/apitest";
+import { getUsers } from "./services/dbservice";
 
 function App() {
     const [signedIn, setSignedIn] = useState(false);
     // const navigate = useNavigate(null);
     const [collapsed, setCollapsed] = useState(false);
     const [loading, setLoading] = useState(false);
-
+    window.getUsers = getUsers;
     const eventListenerCallback = useCallback((e) => {
         let id = e.target.id;
         let app = document.getElementById("app");
