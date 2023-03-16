@@ -35,16 +35,17 @@ const SignIn = (props) => {
     };
 
     const handleSignIn = async function (e) {
-        props.setLoading(true);
+        // props.setLoading(true);
         e.preventDefault();
-        let data = { swag: "swag" };
-        let res = await logIn(data);
+        // let data = { swag: "swag" };
+        // let res = await logIn(data);
         props.setLoading(false);
-        console.log(res);
+        // console.log(res);
         if (password !== "password") {
             handleWrongPassword();
             return;
         }
+
         props.handleSignIn();
         navigate("/home");
     };
