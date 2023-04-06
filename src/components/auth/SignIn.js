@@ -6,11 +6,16 @@ import { FidgetSpinner } from "react-loader-spinner";
 import Loading from "../Loading";
 
 const SignIn = (props) => {
+    const [username, setUsername] = useState(null);
     const [password, setPassword] = useState(null);
     const [passwordError, setPasswordError] = useState(false);
 
     const navigate = useNavigate(null);
     const signIn = () => {};
+
+    const handleUsername = (e) => {
+        setUsername(e.target.value);
+    };
 
     const handlePassword = (e) => {
         setPassword(e.target.value);
@@ -41,6 +46,39 @@ const SignIn = (props) => {
         // let res = await logIn(data);
         props.setLoading(false);
         // console.log(res);
+
+        //
+        // move this wherever
+        const url = "https://backend.woodnet.io/sign-in";
+        const data = {
+            username: username,
+            password: password
+        };
+
+        // const test_response = await fetch("https://backend.woodnet.io/test",
+        //     {
+        //         mode: "no-cors" //"cors",
+        //     }
+        // );
+        // const jsonData = await test_response.json();
+        // console.log(jsonData);
+        const response = await fetch(url, {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+            mode: "no-cors", // no-cors, *cors, same-origin
+            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: "same-origin", // include, *same-origin, omit
+            headers: {
+              "Content-Type": "application/json",
+              // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+          });
+
+        // move the above
+        //
+
         if (password !== "password") {
             handleWrongPassword();
             return;
@@ -66,6 +104,14 @@ const SignIn = (props) => {
                 {passwordError && (
                     <p className="password-error">Nice try, bozo</p>
                 )}
+                <input
+                    required
+                    id="username-input"
+                    className="form-control has-feedback"
+                    onChange={handleUsername}
+                    type="username"
+                    placeholder="Username"
+                ></input>
                 <input
                     required
                     id="password-input"
