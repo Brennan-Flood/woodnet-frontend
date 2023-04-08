@@ -49,7 +49,7 @@ const SignIn = (props) => {
 
         //
         // move this wherever
-        const url = "https://backend.woodnet.io/sign-in";
+        const url = "https://dev.backend.woodnet.io/sign-in";
         const data = {
             username: username,
             password: password
@@ -64,7 +64,7 @@ const SignIn = (props) => {
         // console.log(jsonData);
         const response = await fetch(url, {
             method: "POST", // *GET, POST, PUT, DELETE, etc.
-            mode: "no-cors", // no-cors, *cors, same-origin
+            mode: "cors", // no-cors, *cors, same-origin
             cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
             credentials: "same-origin", // include, *same-origin, omit
             headers: {
