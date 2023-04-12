@@ -54,7 +54,7 @@ const SignIn = (props) => {
             username: username,
             password: password
         };
-
+        const success = logIn(data)
         // const test_response = await fetch("https://backend.woodnet.io/test",
         //     {
         //         mode: "no-cors" //"cors",
@@ -62,31 +62,31 @@ const SignIn = (props) => {
         // );
         // const jsonData = await test_response.json();
         // console.log(jsonData);
-        const response = await fetch(url, {
-            method: "POST", // *GET, POST, PUT, DELETE, etc.
-            mode: "cors", // no-cors, *cors, same-origin
-            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: "same-origin", // include, *same-origin, omit
-            headers: {
-              "Content-Type": "application/json",
-              // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            redirect: "follow", // manual, *follow, error
-            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-            body: JSON.stringify(data), // body data type must match "Content-Type" header
-        })
-        .then(response => response.json())
-        .then(response => {
-            localStorage.setItem('AccessToken', response.body.AccessToken)
-            localStorage.setItem('RefreshToken', response.body.RefreshToken)
-            localStorage.setItem('IdToken', response.body.IdToken)
-        });
+        // const response = await fetch(url, {
+        //     method: "POST", // *GET, POST, PUT, DELETE, etc.
+        //     mode: "cors", // no-cors, *cors, same-origin
+        //     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        //     credentials: "same-origin", // include, *same-origin, omit
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //       // 'Content-Type': 'application/x-www-form-urlencoded',
+        //     },
+        //     redirect: "follow", // manual, *follow, error
+        //     referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        //     body: JSON.stringify(data), // body data type must match "Content-Type" header
+        // })
+        // .then(response => response.json())
+        // .then(response => {
+        //     localStorage.setItem('AccessToken', response.body.AccessToken)
+        //     localStorage.setItem('RefreshToken', response.body.RefreshToken)
+        //     localStorage.setItem('IdToken', response.body.IdToken)
+        // });
 
 
         // move the above
         //
 
-        if (password !== "password") {
+        if (!success) {
             handleWrongPassword();
             return;
         }

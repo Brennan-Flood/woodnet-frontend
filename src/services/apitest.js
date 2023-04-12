@@ -22,18 +22,43 @@ export const callApi = async function () {
 };
 
 export const authorizedRequest = async function (url, method, body) {
+    let headers = {
+        headers: {
+            "Authorization": localStorage.getItem('AccessToken'),
+        },
+    }
+
+    if (["POST", "PUT"].includes(method)) {
+        headers["Content-Type"] = "application/json"
+    }
+    
     const response = await fetch(url, {
-        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        method: method, // *GET, POST, PUT, DELETE, etc.
         mode: "cors", // no-cors, *cors, same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
         credentials: "same-origin", // include, *same-origin, omit
-        headers: {
-            "Authorization": localStorage.getItem('AccessToken'),
-            "Content-Type": "application/json",
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
+        headers: headers,
         redirect: "follow", // manual, *follow, error
         referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(data), // body data type must match "Content-Type" header
+        body: body, // body data type must match "Content-Type" header
+    });
+
+    return response
+}
+
+export const unauthorizedRequest = async function (url, method, body) {
+    if (["POST", "PUT"].includes(method)) {
+        headers["Content-Type"] = "application/json"
+    }
+    
+    return fetch(url, {
+        method: method, // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: headers,
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: body, // body data type must match "Content-Type" header
     });
 }
