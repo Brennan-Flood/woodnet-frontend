@@ -74,7 +74,14 @@ const SignIn = (props) => {
             redirect: "follow", // manual, *follow, error
             referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
             body: JSON.stringify(data), // body data type must match "Content-Type" header
-          });
+        })
+        .then(response => response.json())
+        .then(response => {
+            localStorage.setItem('AccessToken', response.body.AccessToken)
+            localStorage.setItem('RefreshToken', response.body.RefreshToken)
+            localStorage.setItem('IdToken', response.body.IdToken)
+        });
+
 
         // move the above
         //
