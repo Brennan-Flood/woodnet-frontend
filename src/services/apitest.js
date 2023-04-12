@@ -21,7 +21,17 @@ export const callApi = async function () {
     return axios.post("/", body);
 };
 
-export const authorizedRequest = function (url, method, body) {
+export const authorizedRequest = async function (url, method, body) {
+    let request = {
+        method: method, // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    };
+
+    // Determine necessary headers
     let headers = {
         "Authorization": localStorage.getItem('AccessToken'),
     };
@@ -29,34 +39,40 @@ export const authorizedRequest = function (url, method, body) {
     if (["POST", "PUT"].includes(method)) {
         headers["Content-Type"] = "application/json"
     };
+
+    request["headers"] = headers;
+
+    // Check if body was submitted
+    if (body) {
+        request["body"] = body // body data type must match "Content-Type" header
+    };
     
-    return fetch(url, {
+    return await fetch(url, request).then(response => response.json());
+}
+
+export const unauthorizedRequest = async function (url, method, body) {
+    let request = {
         method: method, // *GET, POST, PUT, DELETE, etc.
         mode: "cors", // no-cors, *cors, same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
         credentials: "same-origin", // include, *same-origin, omit
-        headers: headers,
         redirect: "follow", // manual, *follow, error
         referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: body, // body data type must match "Content-Type" header
-    })
-}
+    };
 
-export const unauthorizedRequest = async function (url, method, body) {
+    // Determine necessary headers
     let headers = {};
     
     if (["POST", "PUT"].includes(method)) {
         headers["Content-Type"] = "application/json"
-    }
-    
-    return await fetch(url, {
-        method: method, // *GET, POST, PUT, DELETE, etc.
-        mode: "cors", // no-cors, *cors, same-origin
-        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: "same-origin", // include, *same-origin, omit
-        headers: headers,
-        redirect: "follow", // manual, *follow, error
-        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: body, // body data type must match "Content-Type" header
-    }).then(response => response.json());
+    };
+
+    request["headers"] = headers;
+
+    // Check if body was submitted
+    if (body) {
+        request["body"] = body // body data type must match "Content-Type" header
+    };
+
+    return await fetch(url, request).then(response => response.json());
 }
