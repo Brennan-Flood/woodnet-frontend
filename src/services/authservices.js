@@ -1,7 +1,7 @@
 import axios from "axios";
 import { unauthorizedRequest } from "./apitest";
 
-export const logIn = function (data) {
+export const logIn = async function (data) {
     const url = "https://dev.backend.woodnet.io/sign-in";
     let success = false;
     console.log("starting log in request")
@@ -18,7 +18,7 @@ export const logIn = function (data) {
     //     referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     //     body: JSON.stringify(data), // body data type must match "Content-Type" header
     // })
-    data = unauthorizedRequest(url, "POST", JSON.stringify(data))
+    data = await unauthorizedRequest(url, "POST", JSON.stringify(data))
     
     console.log("logIn response")
     console.log(data)
