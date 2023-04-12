@@ -23,10 +23,10 @@ export const logIn = async function (data) {
     console.log("logIn response")
     console.log(data)
 
-    if (data.status === 200) {
-        localStorage.setItem('AccessToken', data.body.AccessToken);
-        localStorage.setItem('RefreshToken', data.body.RefreshToken);
-        localStorage.setItem('IdToken', data.body.IdToken);
+    if ("AccessToken" in data) {
+        localStorage.setItem("AccessToken", data.body.AccessToken);
+        localStorage.setItem("RefreshToken", data.body.RefreshToken);
+        localStorage.setItem("IdToken", data.body.IdToken);
         console.log("localStorage saved")
         success = true
     } else {
