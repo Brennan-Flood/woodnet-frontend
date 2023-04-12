@@ -24,11 +24,11 @@ export const callApi = async function () {
 export const authorizedRequest = async function (url, method, body) {
     let headers = {
         "Authorization": localStorage.getItem('AccessToken'),
-    }
+    };
 
     if (["POST", "PUT"].includes(method)) {
         headers["Content-Type"] = "application/json"
-    }
+    };
     
     const response = await fetch(url, {
         method: method, // *GET, POST, PUT, DELETE, etc.
@@ -45,6 +45,8 @@ export const authorizedRequest = async function (url, method, body) {
 }
 
 export const unauthorizedRequest = async function (url, method, body) {
+    let headers = {};
+    
     if (["POST", "PUT"].includes(method)) {
         headers["Content-Type"] = "application/json"
     }
