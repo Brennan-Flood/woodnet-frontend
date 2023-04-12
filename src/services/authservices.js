@@ -4,6 +4,7 @@ import { unauthorizedRequest } from "./apitest";
 export const logIn = function (data) {
     const url = "https://dev.backend.woodnet.io/sign-in";
     let success = false;
+    console.log("starting log in request")
     // fetch(url, {
     //     method: "POST", // *GET, POST, PUT, DELETE, etc.
     //     mode: "cors", // no-cors, *cors, same-origin
@@ -34,6 +35,7 @@ export const logIn = function (data) {
             success = false
         }
     })
+    console.log("finished log in request")
 
     return success
 };
