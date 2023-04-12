@@ -23,9 +23,7 @@ export const callApi = async function () {
 
 export const authorizedRequest = async function (url, method, body) {
     let headers = {
-        headers: {
-            "Authorization": localStorage.getItem('AccessToken'),
-        },
+        "Authorization": localStorage.getItem('AccessToken'),
     }
 
     if (["POST", "PUT"].includes(method)) {
