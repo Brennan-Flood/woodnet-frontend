@@ -42,14 +42,14 @@ export const authorizedRequest = function (url, method, body) {
     })
 }
 
-export const unauthorizedRequest = function (url, method, body) {
+export const unauthorizedRequest = async function (url, method, body) {
     let headers = {};
     
     if (["POST", "PUT"].includes(method)) {
         headers["Content-Type"] = "application/json"
     }
     
-    return fetch(url, {
+    return await fetch(url, {
         method: method, // *GET, POST, PUT, DELETE, etc.
         mode: "cors", // no-cors, *cors, same-origin
         cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
@@ -58,5 +58,5 @@ export const unauthorizedRequest = function (url, method, body) {
         redirect: "follow", // manual, *follow, error
         referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
         body: body, // body data type must match "Content-Type" header
-    });
+    }).then(response => response.json());
 }

@@ -18,23 +18,22 @@ export const logIn = function (data) {
     //     referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     //     body: JSON.stringify(data), // body data type must match "Content-Type" header
     // })
-    unauthorizedRequest(url, "POST", JSON.stringify(data))
-    .then(async response => {
-        console.log("logIn response")
-        let data = await response.json()
-        console.log(data)
+    data = unauthorizedRequest(url, "POST", JSON.stringify(data))
+    
+    console.log("logIn response")
+    console.log(data)
 
-        if (data.status === 200) {
-            localStorage.setItem('AccessToken', data.body.AccessToken);
-            localStorage.setItem('RefreshToken', data.body.RefreshToken);
-            localStorage.setItem('IdToken', data.body.IdToken);
-            console.log("localStorage saved")
-            success = true
-        } else {
-            console.log("error")
-            success = false
-        }
-    })
+    if (data.status === 200) {
+        localStorage.setItem('AccessToken', data.body.AccessToken);
+        localStorage.setItem('RefreshToken', data.body.RefreshToken);
+        localStorage.setItem('IdToken', data.body.IdToken);
+        console.log("localStorage saved")
+        success = true
+    } else {
+        console.log("error")
+        success = false
+    }
+    
     console.log("finished log in request")
 
     return success
