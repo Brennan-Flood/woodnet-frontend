@@ -3,6 +3,7 @@ import { unauthorizedRequest } from "./apitest";
 
 export const logIn = function (data) {
     const url = "https://dev.backend.woodnet.io/sign-in";
+    let success = false;
     // fetch(url, {
     //     method: "POST", // *GET, POST, PUT, DELETE, etc.
     //     mode: "cors", // no-cors, *cors, same-origin
@@ -17,20 +18,21 @@ export const logIn = function (data) {
     //     body: JSON.stringify(data), // body data type must match "Content-Type" header
     // })
     unauthorizedRequest(url, "POST", JSON.stringify(data))
-    .then(response => response.json())
-    .then(
-        result => {
-            localStorage.setItem('AccessToken', result.body.AccessToken);
-            localStorage.setItem('RefreshToken', result.body.RefreshToken);
-            localStorage.setItem('IdToken', result.body.IdToken);
+    .then(async response => {
+        let data = await response.json()
+
+        if (data.status === 200) {
+            localStorage.setItem('AccessToken', data.body.AccessToken);
+            localStorage.setItem('RefreshToken', data.body.RefreshToken);
+            localStorage.setItem('IdToken', data.body.IdToken);
             console.log("localStorage saved")
-            return true
-        },
-        error => {
-            console.log(error)
-            return false
+            success = true
+        } else {
+            success = false
         }
-    );
+    })
+
+    return success
 };
 
 export const signUp = function (data) {
