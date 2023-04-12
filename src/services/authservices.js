@@ -22,7 +22,7 @@ export const logIn = function (data) {
     .then(async response => {
         console.log("logIn response")
         let data = await response.json()
-        console.log(data.status)
+        console.log(data)
 
         if (data.status === 200) {
             localStorage.setItem('AccessToken', data.body.AccessToken);
