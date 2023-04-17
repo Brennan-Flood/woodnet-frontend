@@ -1,9 +1,9 @@
 import React from "react";
 import { startServer } from "../../../functions/startserver";
 
-const StartButton = (props) => {
+const StartButton = ({type="minecraft"}) => {
     const handleClick = () => {
-        startServer();
+        startServer(type);
     };
 
     return (

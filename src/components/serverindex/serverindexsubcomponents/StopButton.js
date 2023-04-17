@@ -1,9 +1,9 @@
 import React from "react";
 import { stopServer } from "../../../functions/stopserver";
 
-const StopButton = (props) => {
+const StopButton = ({type="minecraft"}) => {
     const handleClick = () => {
-        stopServer();
+        stopServer(type);
     };
 
     return (
