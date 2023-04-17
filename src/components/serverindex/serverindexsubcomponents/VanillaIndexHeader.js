@@ -3,30 +3,20 @@ import StartButton from "./StartButton";
 import StopButton from "./StopButton";
 import { toast } from "react-toastify";
 
-const VanillaHeader = (props) => {
+const VanillaHeader = ({
+    image = "minecraft-vanilla.jpeg", 
+    name = "Vanilla Minecraft", 
+    type = "minecraft", 
+    copiedNotify = ""
+}) => {
     const [statusText, setStatusText] = useState("Offline");
     const handleCopyIp = (ip) => {
         navigator.clipboard.writeText(ip);
-        console.log(props.copiedNotify);
+        console.log(copiedNotify);
         toast.info("Copied IP to clipboard", {
             position: "bottom-center",
         });
     };
-
-    let image = "minecraft-vanilla.jpeg";
-    if (props.image) {
-        image = props.image;
-    }
-
-    let name = "Vanilla Minecraft";
-    if (props.name) {
-        name = props.name;
-    }
-
-    let type = "minecraft";
-    if (props.name) {
-        name = props.type;
-    }
 
     if (statusText === null) {
         setStatusText("Offline");

@@ -11,7 +11,7 @@ const ArkContainer = (props) => {
     return (
         <div className="index-button vanilla-container">
             <ToastContainer />
-            <VanillaHeader copiedNotify={props.copiedNotify} />
+            <VanillaHeader name="Ark Server" type = "ark" copiedNotify={props.copiedNotify} />
         </div>
     );
 };
