@@ -21,7 +21,7 @@ export const callApi = async function () {
     return axios.post("/", body);
 };
 
-export const request = async function (url, method, body={}, headers={}) {
+export const request = async function (url, method, body=null, headers={}) {
     let request = {
         method: method, // *GET, POST, PUT, DELETE, etc.
         mode: "cors", // no-cors, *cors, same-origin
@@ -37,7 +37,7 @@ export const request = async function (url, method, body={}, headers={}) {
         headers["Authorization"] = token;
     };
 
-    if (["POST", "PUT"].includes(method)) {
+    if (["POST", "PUT"].includes(method) && body) {
         headers["Content-Type"] = "application/json"
     };
 
