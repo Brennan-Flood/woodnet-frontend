@@ -1,4 +1,4 @@
-import request from "./services/apitest"
+import { request } from "../services/apitest"
 
 const urls = {
     "ark": "https://dev.backend.woodnet.io/start-ark",

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { unauthorizedRequest } from "./apitest";
+import { request } from "./apitest";
 
 export const logIn = async function (data) {
     const url = "https://dev.backend.woodnet.io/sign-in";
