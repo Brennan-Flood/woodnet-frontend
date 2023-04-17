@@ -5,7 +5,7 @@ export const logIn = async function (data) {
     const url = "https://dev.backend.woodnet.io/sign-in";
     let success = false;
 
-    data = await unauthorizedRequest(url, "POST", JSON.stringify(data))
+    data = await request(url, "POST", JSON.stringify(data))
 
     if ("AccessToken" in data) {
         localStorage.setItem("AccessToken", data.AccessToken);

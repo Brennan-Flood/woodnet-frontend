@@ -13,6 +13,21 @@ const VanillaHeader = (props) => {
         });
     };
 
+    let image = "minecraft-vanilla.jpeg";
+    if (props.image) {
+        image = props.image;
+    }
+
+    let name = "Vanilla Minecraft";
+    if (props.name) {
+        name = props.name;
+    }
+
+    let type = "minecraft";
+    if (props.name) {
+        name = props.type;
+    }
+
     if (statusText === null) {
         setStatusText("Offline");
     }
@@ -36,11 +51,11 @@ const VanillaHeader = (props) => {
             <div className="control-panel-title-image">
                 <img
                     className="control-panel-image"
-                    src="minecraft-vanilla.jpeg"
+                    src={image}
                     alt=""
                 ></img>
                 <div className="control-panel-main">
-                    <h1 className="control-panel-title">Vanilla Minecraft</h1>
+                    <h1 className="control-panel-title">{name}</h1>
                     <div className="server-info">
                         <div className="status-container">
                             <p style={getStatusStyle()} className="status">
@@ -61,8 +76,8 @@ const VanillaHeader = (props) => {
                 </div>
             </div>
             <div className="buttons-container">
-                <StartButton />
-                <StopButton />
+                <StartButton type={type} />
+                <StopButton type={type} />
             </div>
         </div>
     );

@@ -21,7 +21,7 @@ export const callApi = async function () {
     return axios.post("/", body);
 };
 
-export const authorizedRequest = async function (url, method, body) {
+export const request = async function (url, method, body={}, headers={}) {
     let request = {
         method: method, // *GET, POST, PUT, DELETE, etc.
         mode: "cors", // no-cors, *cors, same-origin
@@ -32,8 +32,9 @@ export const authorizedRequest = async function (url, method, body) {
     };
 
     // Determine necessary headers
-    let headers = {
-        "Authorization": localStorage.getItem('AccessToken'),
+    const token = localStorage.getItem('AccessToken')
+    if (token) {
+        headers["Authorization"] = token;
     };
 
     if (["POST", "PUT"].includes(method)) {

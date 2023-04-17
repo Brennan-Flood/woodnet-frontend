@@ -1,4 +1,12 @@
-export const startServer = () => {
-    console.log("starting server...")
+import request from "./services/apitest"
+
+const urls = {
+    "ark": "https://dev.backend.woodnet.io/start-ark",
+    "minecraft": "https://dev.backend.woodnet.io/start-minecraft"
+}
+export const startServer = (props) => {
+    console.log("starting " + props.type + " server...")
+
+    request(urls[props.type], "POST")
     return "Starting Server... "
 };
