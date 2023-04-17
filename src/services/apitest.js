@@ -32,7 +32,7 @@ export const request = async function (url, method, body={}, headers={}) {
     };
 
     // Determine necessary headers
-    const token = localStorage.getItem('AccessToken')
+    const token = localStorage.getItem('IdToken')
     if (token) {
         headers["Authorization"] = token;
     };
