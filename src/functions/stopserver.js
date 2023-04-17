@@ -5,10 +5,10 @@ const urls = {
     "minecraft": "https://dev.backend.woodnet.io/stop-minecraft"
 }
 
-export const stopServer = (props) => {
-    console.log("Stopping " + props.type + " server...");
+export const stopServer = (type) => {
+    console.log("Stopping " + type + " server...");
 
-    request(urls[props.type], "POST")
+    request(urls[type], "POST")
 
     return "Stopping Server..."
 }
