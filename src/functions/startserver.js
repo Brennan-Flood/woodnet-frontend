@@ -6,9 +6,9 @@ const urls = {
 }
 
 export const startServer = (props) => {
-    console.log("Starting " + props.type + " server...")
+    console.log("Starting " + type + " server...")
 
-    request(urls[props.type], "POST")
+    request(urls[type], "POST")
 
     return "Starting Server... "
 };
