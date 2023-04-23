@@ -5,7 +5,7 @@ const urls = {
     "minecraft": "https://dev.backend.woodnet.io/start-minecraft"
 }
 
-export const startServer = (props) => {
+export const startServer = (type) => {
     console.log("Starting " + type + " server...")
 
     request(urls[type], "POST")
